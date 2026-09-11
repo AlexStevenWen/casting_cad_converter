@@ -1,0 +1,23 @@
+# 1. 選擇一個包含 Miniconda 的官方基礎映像檔
+# continuumio/miniconda3 是最常見的選擇
+FROM continuumio/miniconda3:latest
+
+# 2. 設定工作目錄
+# 之後的指令都會在這個目錄下執行
+WORKDIR /app
+
+# 3. 複製環境定義檔到映像檔中
+COPY cad_converter_env.yml .
+
+# 4. 在映像檔內部，使用 conda 根據 yml 檔案建立環境
+# 這一步會需要一些時間，因為它會下載並安裝所有指定的套件
+RUN conda env create -f cad_converter_env.yml
+
+# 清理 conda 快取，可以有效減小最終映像檔的大小
+RUN conda clean -afy
+
+# 5. 非常重要的一步：讓 Docker 之後的指令都在這個新的 conda 環境中執行
+# 這行指令會修改 shell 的啟動方式，自動啟動 conda 環境
+
+COPY . .
+

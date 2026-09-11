@@ -1,0 +1,67 @@
+{
+  "processing_pipeline": [
+    {
+      "task_name": "將單一 STEP 檔案轉換為高品質 STL",
+      "enabled": true,
+      "type": "single",
+      "parameters": {
+        "operation": "step_to_mesh",
+        "in_path": "C:/3D_projects/inputs/part_A.step",
+        "out_path": "C:/3D_projects/outputs/part_A_high_quality.stl",
+        "tolerance": 0.01,
+        "tessellate_value": 0.02,
+        "Frotation": 30.0
+      }
+    },
+    {
+      "task_name": "批量將 STEP 目錄轉換為 STL (使用預設參數)",
+      "enabled": true,
+      "type": "batch",
+      "parameters": {
+        "operation": "step_to_mesh",
+        "input_dir": "C:/3D_projects/inputs/batch_step/",
+        "output_dir": "C:/3D_projects/outputs/batch_stl/"
+      }
+    },
+    {
+      "task_name": "批量產生點雲 (此任務已禁用)",
+      "enabled": false,
+      "type": "batch",
+      "parameters": {
+        "operation": "stl_to_cloud",
+        "input_dir": "C:/3D_projects/outputs/batch_stl/",
+        "output_dir": "C:/3D_projects/outputs/point_clouds/",
+        "number_of_points": 4096
+      }
+    },
+    {
+      "task_name": "從單一 STL 產生深度圖",
+      "enabled": true,
+      "type": "single",
+      "parameters": {
+        "operation": "stl_to_deep",
+        "in_path": "C:/3D_projects/inputs/special_part.stl",
+        "out_path": "C:/3D_projects/outputs/depth_images/",
+        "camera_angles_list": [ [0, 0, 1], [0, 90, 0], [90, 0, 0] ],
+        "image_width": 256,
+        "image_height": 256,
+        "radius": 180.0,
+        "depth_range": [10.0, 300.0]
+      }
+    },
+    {
+      "task_name": "批量移動組合件 (雙目錄輸出)",
+      "enabled": true,
+      "type": "batch",
+      "parameters": {
+          "operation": "move_step_by_merged_double",
+          "input_dir_assembly": "C:/data/source/assemblies/",
+          "input_dir_merged": "C:/data/source/merged/",
+          "output_dir_assembly": "C:/data/output/moved_assemblies/",
+          "output_dir_merged": "C:/data/output/moved_merged/",
+          "Fvector": [0, 50.0, 0],
+          "Frotation": 180.0
+      }
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+transform_3D_batch.batch_process_assemblies(processed_CAD_root +  rf"\cloud_parts_file_Z_positive_{str(2**10)}",rf"\cloud_parts_surface_detection_{str(2**10)}",contact_threshold = 1)
+transform_3D_batch.batch_process_assemblies(processed_CAD_root +  rf"\cloud_parts_file_Z_positive_{str(2**11)}",rf"\cloud_parts_surface_detection_{str(2**11)}",contact_threshold = 1)
+transform_3D_batch.batch_process_assemblies(processed_CAD_root +  rf"\cloud_parts_file_Z_positive_{str(2**12)}",rf"\cloud_parts_surface_detection_{str(2**12)}",contact_threshold = 1)
+transform_3D_batch.batch_process_assemblies(processed_CAD_root +  rf"\cloud_parts_file_Z_positive_{str(2**13)}",rf"\cloud_parts_surface_detection_{str(2**13)}",contact_threshold = 1)
+transform_3D_batch.batch_process_assemblies(processed_CAD_root +  rf"\cloud_parts_file_Z_positive_{str(2**14)}",rf"\cloud_parts_surface_detection_{str(2**14)}",contact_threshold = 1)
+transform_3D_batch.batch_process_assemblies(processed_CAD_root +  rf"\cloud_parts_file_Z_positive_{str(2**15)}",rf"\cloud_parts_surface_detection_{str(2**15)}",contact_threshold = 1)
+transform_3D_batch.batch_process_assemblies(processed_CAD_root +  rf"\cloud_parts_file_Z_positive_{str(2**16)}",rf"\cloud_parts_surface_detection_{str(2**16)}",contact_threshold = 1)
