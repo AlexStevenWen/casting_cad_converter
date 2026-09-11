@@ -1,10 +1,25 @@
 # cad_converter (3D CAD & Point Cloud Processing Pipeline)
 
-**cad_converter** is a highly integrated 3D geometry preprocessing module designed for precision investment casting prediction systems. This module is responsible for transforming raw engineering CAD files (STEP) with high geometric noise into standardized feature vectors and multi-modal point cloud data. These outputs can be directly consumed by downstream machine learning and deep learning models (e.g., Auto-sklearn, PointNeXt, UprightRL).
+**cad_converter** is a highly integrated 3D geometry preprocessing module designed for precision investment casting prediction systems. It serves as a core data-preprocessing component for the master's thesis research on **Classification and Process Prediction of Gating Systems for Investment Casting of A356 Aluminum Alloy**. This module is responsible for transforming raw engineering CAD files (STEP) with high geometric noise into standardized feature vectors and multi-modal point cloud data. These outputs can be directly consumed by downstream machine learning and deep learning models (e.g., Auto-sklearn, PointNeXt, UprightRL).
 
 To resolve dependency conflicts among different underlying geometry engines, this module features a built-in **hybrid environment scheduler**. It automatically isolates and invokes multiple virtual environments, including FreeCAD, PythonOCC, Open3D, and PcSkeletor, for dedicated computations.
 
----
+## Project Background and Academic Context
+
+This tool is part of the experimental methodology of the following master's thesis:
+
+- **Thesis Title**: A Study on the Classification and Process Prediction of Gating Systems for Investment Casting of A356 Aluminum Alloy
+- **Author**: HSU, WEN-HO
+- **Advisor**: CHEN, TZUNG-MING
+- **Institution**: National Changhua University of Education
+- **Department**: Department of Electrical and Mechanical Technology
+- **Degree**: Master's Thesis
+- **Oral Defense Date**: 2026-07-10
+- **Permanent URL**: [https://hdl.handle.net/11296/32a644](https://hdl.handle.net/11296/32a644)
+
+**Keywords**: A356 aluminum alloy, investment casting, automated machine learning (AutoML), 3D point cloud semantic segmentation.
+
+The research aims to establish a gating system classification model and process prediction system for A356 aluminum alloy investment casting. A critical step is the conversion of raw CAD assemblies into clean, standardized representations suitable for automated machine learning (AutoML) and 3D point cloud semantic segmentation. `cad_converter` fulfills this role by providing robust topology repair, blank identification, point cloud sampling, feature extraction, and soft label generation, thereby enabling the downstream modeling and prediction tasks of the thesis.
 
 ## Key Features
 
@@ -38,10 +53,12 @@ Usage
 The module is driven by a Command Line Interface (CLI) and a JSON configuration file. It supports both single-file and batch folder processing, making it easy to integrate into automated CI/CD pipelines.
 
 Execution Command
-Bash
+
+bash
 python main.py --config config.json
 Configuration Example (config.json)
-JSON
+
+json
 {
     "processing_pipeline": [
         {
@@ -82,3 +99,12 @@ Exit Status
 Exit Code 0 (status: success): All enabled conversion and processing tasks completed successfully.
 
 Exit Code 1 (status: error): Configuration syntax error, corrupted CAD files, or a subprocess crashed during execution.
+
+Citation
+If this tool is helpful to your research, please cite the following thesis:
+
+HSU, W.-H. (2026). A Study on the Classification and Process Prediction of Gating Systems for Investment Casting of A356 Aluminum Alloy (Master's thesis). National Changhua University of Education, Department of Electrical and Mechanical Technology, Changhua City. Retrieved from https://hdl.handle.net/11296/32a644
+
+text
+
+You can directly replace your existing `README.md` with the above content. If you would like any further adjustments, such as a different placement of the citation or additional details, just let me know.
